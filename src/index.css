@@ -1,13 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer base {
+  html {
+    @apply scroll-smooth bg-slate-950;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased min-h-screen relative;
+    background-image: radial-gradient(circle at 20% 20%, rgba(76, 110, 245, 0.08), transparent 35%), radial-gradient(circle at 80% 0%, rgba(249, 115, 22, 0.12), transparent 45%), radial-gradient(circle at 50% 80%, rgba(56, 189, 248, 0.08), transparent 40%);
+  }
+
+  ::selection {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  a {
+    @apply text-primary hover:text-primary-foreground transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-surface-elevated/80 backdrop-blur-xl border border-white/5 rounded-2xl shadow-card;
+  }
+
+  .gradient-border {
+    background: linear-gradient(120deg, rgba(76, 110, 245, 0.85), rgba(129, 140, 248, 0.35), rgba(249, 115, 22, 0.6));
+    padding: 1px;
+    border-radius: 1.5rem;
+  }
+
+  .badge {
+    @apply inline-flex items-center gap-1 px-3 py-1 text-xs font-semibold uppercase tracking-wide rounded-full bg-slate-800/70 text-slate-100 border border-white/5;
+  }
 }
 
